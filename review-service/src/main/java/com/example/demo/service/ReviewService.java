@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.exception.ReviewNotFoundException;
 import com.example.demo.model.Review;
 import com.example.demo.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,5 +20,11 @@ public class ReviewService {
 
     public List<Review> getAll() {
         return repository.findAll();
+    }
+    public Review getById(Long id) {
+        return repository.findById(id)
+                .orElseThrow(() ->
+                        new ReviewNotFoundException(
+                                "Review not found with id: " + id));
     }
 }

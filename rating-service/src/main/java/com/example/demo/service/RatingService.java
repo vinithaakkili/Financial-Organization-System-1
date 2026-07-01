@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.exception.RatingNotFoundException;
 import com.example.demo.model.Rating;
 import com.example.demo.repository.RatingRepository;
 
@@ -37,5 +38,11 @@ public class RatingService {
         List<Rating> list = repository.findAll();
 
         return CompletableFuture.completedFuture(list);
+    }
+    public Rating getById(Long id) {
+        return repository.findById(id)
+                .orElseThrow(() ->
+                        new RatingNotFoundException(
+                                "Rating not found with id: " + id));
     }
 }

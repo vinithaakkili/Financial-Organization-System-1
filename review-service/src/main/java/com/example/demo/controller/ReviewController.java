@@ -25,4 +25,8 @@ public class ReviewController {
     public List<Review> getAllReviews() {
         return service.getAll();   // ✅ FIXED
     }
+    @GetMapping("/{id}")
+    public Review getReviewById(@PathVariable Long id) {
+        return service.getById(id);
+    }
 }

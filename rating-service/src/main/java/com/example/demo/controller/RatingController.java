@@ -29,4 +29,8 @@ public class RatingController {
     public CompletableFuture<List<Rating>> getAllAsync() {
         return service.getAllAsync();
     }
+    @GetMapping("/{id}")
+    public Rating getRatingById(@PathVariable Long id) {
+        return service.getById(id);
+    }
 }

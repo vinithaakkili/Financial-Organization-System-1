@@ -35,4 +35,8 @@ public class OrganizationController {
     public ResponseEntity<Organization> addOrganization(@RequestBody Organization org) {
         return ResponseEntity.ok(service.save(org));
     }
+    @GetMapping("/{id}")
+    public Organization getById(@PathVariable Long id) {
+        return service.getById(id);
+    }
 }
