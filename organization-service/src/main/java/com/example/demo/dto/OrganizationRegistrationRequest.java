@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class OrganizationDTO {
+public class OrganizationRegistrationRequest {
 
     private String organizationName;
     private String registrationNumber;
@@ -17,4 +17,5 @@ public class OrganizationDTO {
     private String address;
     private String representativeName;
     private String representativeEmail;
+    
 }
